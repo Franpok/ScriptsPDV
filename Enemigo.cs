@@ -16,24 +16,21 @@ public class Enemigo : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 300;
+        
+
         baseWaitTime = Random.Range(2f, 6f);
         enemigo = this.gameObject.GetComponent<Rigidbody2D>();
         enemigo.velocity= new Vector2(1, 0) *-1 * velocidad;
     }
-    void Awake()
-    {
-        // Make the game run as fast as possible in Windows
-        
-    }
-    void cambioDireccion(int direccion)
+
+    void cambioDireccion(int direccion)//Cambio de dirección que se ejecutará cuando choque contra un muro
     {
         Vector2 nuevaVelocidad = enemigo.velocity;
         nuevaVelocidad.x = velocidad * direccion;
         enemigo.velocity = nuevaVelocidad;
     }
 
-    void cambioSprite()
+    void cambioSprite()//Con este método, se cambiarán los sprites dependiendo de la variable que aumenta si se destruye una barrera
     {
         if (MovBala.cambio == 0 && BalaEnemigos.cambioE == 0)
         {
@@ -111,7 +108,7 @@ public class Enemigo : MonoBehaviour
         }
     }
 
-    void bajar()
+    void bajar()//Al chocar con los muros los enemigos bajan un nivel
     {
         Vector2 posicion = transform.position;
         posicion.y -= 1;
@@ -143,11 +140,11 @@ public class Enemigo : MonoBehaviour
     }
     void FixedUpdate()
     {
-        
+        //Tiempo de disparo de los enemigos
+       
         if (Time.time > baseWaitTime)
         {
             baseWaitTime = baseWaitTime + Random.Range(minTime, maxTime);
-
             Instantiate(bala, transform.position, Quaternion.identity);
         }
         cambioSprite();

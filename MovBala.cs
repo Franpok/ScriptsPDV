@@ -13,6 +13,7 @@ public class MovBala : MonoBehaviour
     public Sprite sprite1;
     public Sprite sprite2;
     public static int cambio = 0;
+    public AudioClip muerte;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class MovBala : MonoBehaviour
 
     void Update()
     {
+        //Al chocarse cambia de sprite y dirección a la contraria
         if (choque == true) {
             proyectil.velocity = new Vector2(0, -1) * velocidad;
             GetComponent<SpriteRenderer>().sprite = sprite2;
@@ -54,9 +56,11 @@ public class MovBala : MonoBehaviour
         }
         if (c.gameObject.tag == "Enemigo")
         {
+            //Si choca con un enemigo lo mata, aumenta la puntuación en 100 y reproduce el sonido de muerte
             aumentarPuntuacion();
             Destroy(gameObject);
             Destroy(c.gameObject);
+            EfectoSonido.Sonido("muerte");
         }
         if (c.gameObject.tag == "Barrera")
         {
@@ -66,7 +70,7 @@ public class MovBala : MonoBehaviour
         }
     }
 
-    void aumentarPuntuacion()
+    void aumentarPuntuacion()//Método que aumenta la puntuación en 100
     {
         var textoUI = GameObject.Find("Score").GetComponent<Text>();
         int puntuacion = int.Parse(textoUI.text);

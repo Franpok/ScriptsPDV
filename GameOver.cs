@@ -9,10 +9,15 @@ public class GameOver : MonoBehaviour
     public GameObject texto;
      void Update()
      {
-        if(MovBala.auxiliar>=0)
-        texto.GetComponent<Text>().text = ""+MovBala.auxiliar;
-        else if(MovBalaRandom.auxiliar>=0)
-        texto.GetComponent<Text>().text = "" + MovBalaRandom.auxiliar;
+        //Dependiendo del modo en el que se haya jugado por última vez, elegirá una condición u otra
+        if(MovBala.auxiliar>0)
+        texto.GetComponent<Text>().text = ""+MovBala.auxiliar;//Modo violento
+        else if(MovBalaRandom.auxiliar>0)
+        texto.GetComponent<Text>().text = "" + MovBalaRandom.auxiliar;//Modo caos
+        else
+        {
+            texto.GetComponent<Text>().text = "0";//Modo infantil
+        }
 
     }
 }

@@ -10,14 +10,8 @@ public class EnemigoTocho : MonoBehaviour
     public float minTime = 5.0f;
     public float maxTime = 10.0f;
     public float baseWaitTime = 5.0f;
-    public float spawnTime = 10.0f;
-    
-    void Start()
-    {
-       // InvokeRepeating("Spawn", 1.0f, 10.0f);
-        //InvokeRepeating("Disparo", 0.0f, 10.0f);
-    }
-    void Spawn()
+
+    void Spawn()//Método que hace que el donut aparezca y se mueva por el eje X
     {
         enemigoDonut = gameObject.GetComponent<Rigidbody2D>();
         Rigidbody2D instance = Instantiate(enemigoDonut);
@@ -26,20 +20,15 @@ public class EnemigoTocho : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Time.time % 10 == 0)
+        if (Time.time % 10 == 0)//Aparecerá cada 10 segundos
         {
             Spawn();
             Destroy(gameObject);
         }
-        if (Time.time > baseWaitTime)// && Time.time < 3.0f)
+        if (Time.time > baseWaitTime)//Disparos del jefe(Mucho más frecuentes que los enemigos normales)
         {
             baseWaitTime = baseWaitTime + Random.Range(.1f,.2f);
             Instantiate(bala, transform.position, Quaternion.identity);
-
         }
-        //if (Time.time == 5.0f)
-          //  Destroy(enemigoDonut);
-       
-
     }
 }

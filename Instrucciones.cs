@@ -11,11 +11,11 @@ public class Instrucciones : MonoBehaviour
     {
         if (isBack)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0);//Vuelve al menú
         }
     }
 
-    private void OnMouseEnter()
+    private void OnMouseEnter()//Cambia de sprite si pasas el ratón por encima
     {
         if (isBack)
         {
@@ -23,7 +23,7 @@ public class Instrucciones : MonoBehaviour
         }
     }
 
-    private void OnMouseExit()
+    private void OnMouseExit()//Cambia de sprite si quitas el ratón de encima
     {
         if (isBack)
         {

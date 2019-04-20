@@ -14,7 +14,7 @@ public class MovBalaRandom : MonoBehaviour
     public Sprite sprite2;
     public static int cambio = 0;
     public Vector2 ve;
-
+    //Igual que MovBala pero esta vez el movimiento sobre el eje X será impredecible
     void Start()
     {
         Time.timeScale = 1;
@@ -24,10 +24,7 @@ public class MovBalaRandom : MonoBehaviour
         ve =new Vector2(Random.Range(-1.0f,1.0f), 1);
         proyectil.velocity = ve * velocidad;
     }
-    /*private Vector2 RandomVector()
-    {
-        return new Vector2(Random.Range(-1, 2), Random.Range(1, -1));
-    }*/
+    
     void Update()
     {
         if (choque == true)
@@ -63,6 +60,7 @@ public class MovBalaRandom : MonoBehaviour
             aumentarPuntuacion();
             Destroy(gameObject);
             Destroy(c.gameObject);
+            EfectoSonido.Sonido("muerte");
         }
         if (c.gameObject.tag == "Barrera")
         {

@@ -14,7 +14,7 @@ public class Jugador : MonoBehaviour
     void FixedUpdate()
     {
         jugador = this.GetComponent<Rigidbody2D>();
-        jugador.velocity = new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"), 0) * velocidad;
+        jugador.velocity = new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"), 0) * velocidad;//Se mueve de manera horizontal y vertical
     }
 
     void Update()
@@ -28,7 +28,7 @@ public class Jugador : MonoBehaviour
         }     
     }
 
-    void OnTriggerEnter2D(Collider2D c)
+    void OnTriggerEnter2D(Collider2D c)//Si choca con un enemigo, muere
     {
         if (c.gameObject.tag == "Enemigo")
         {

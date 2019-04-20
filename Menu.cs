@@ -12,10 +12,9 @@ public class Menu : MonoBehaviour
     public Texture tex_v_on, tex_n_on, tex_v, tex_n, tex_i, tex_i_on, tex_c, tex_c_on;
     public void Start()
     {
-
         Time.timeScale = 0;
     }
-    void OnMouseUp()
+    void OnMouseUp()//Al hacer click en los botones, cambia de escena
     {
         if (violento)
         {
@@ -36,7 +35,7 @@ public class Menu : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+    private void OnMouseEnter()//Cambia de sprite si pasas el ratón por encima
     {
         if (violento)
         {
@@ -56,7 +55,7 @@ public class Menu : MonoBehaviour
         }
     }
 
-    private void OnMouseExit()
+    private void OnMouseExit()//Cambia de sprite si quitas el ratón de encima
     {
         if (violento)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemigoMenor : MonoBehaviour
 {
+    //Igual que los otros enemigos pero este no dispara
     public Rigidbody2D enemigo; //se referencia a sí mismo
     public float velocidad = 15.0f;
     public static bool vida = true;
@@ -50,6 +51,7 @@ public class EnemigoMenor : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(c.gameObject);
+            EfectoSonido.Sonido("muerte");
         }
     }
 }

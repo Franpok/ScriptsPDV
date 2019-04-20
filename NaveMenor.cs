@@ -7,7 +7,7 @@ public class NaveMenor : MonoBehaviour
     public float vel = 10.0f;
     public Rigidbody2D nave;
     public static bool life = true;
-
+    //Mismo código que la Nave normal pero esta no dispara
     void FixedUpdate()
     {
         nave = this.GetComponent<Rigidbody2D>();
@@ -16,7 +16,7 @@ public class NaveMenor : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D c)
     {
-        if (c.gameObject.tag == "Enemigo")
+        if (c.gameObject.tag == "Enemigo")//Al chocarse con un enemigo, muere(única forma de acabar el juego en este modo)
         {
             Destroy(gameObject);
             Destroy(c.gameObject);
