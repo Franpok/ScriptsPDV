@@ -11,7 +11,7 @@ public class Restart : MonoBehaviour
         VueltaALMenu.aux = false;
         if (MovBala.auxiliar >= 0)//Si la puntuación viene del modo violento se reinicia este
         {
-            BalaEnemigos.vida= false;
+            
             MovBala.auxiliar = 0;
             reseteado = true;
             SceneManager.LoadScene(2);

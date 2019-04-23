@@ -18,10 +18,7 @@ public class BalaEnemigos : MonoBehaviour
         
         proyectil = this.gameObject.GetComponent<Rigidbody2D>();
         proyectil.velocity = new Vector2(0, -1) * velocidad;
-        if (Restart.reseteado)
-        {
-            gameObject.SetActive(false);
-        }
+        
     }
     
 
